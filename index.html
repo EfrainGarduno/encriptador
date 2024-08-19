@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de texto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Encriptador Arturito1</h1>
+    </header>
+    <main class="encriptador">
+        <section class="encriptador__envia">
+            <div class="contenedor">
+                <textarea id="textarea" class="contenedor__texto" placeholder="Ingrese el texto aquí"></textarea>
+            </div>
+            <div class="envio">
+                <div class="alerta">
+                    <img class="admiracion" src="img/admiracion.png" alt="Signo de admiración">
+                    <p class="alerta__texto">Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="botones">
+                    <button onclick="usuarioEncripta()" id="botonEncriptado" class="boton__encriptar">Encriptar</button>
+                    <button onclick="usuarioDesencripta()" id="botonDesencriptado" class="boton__desencriptar">Desencriptar</button>
+                </div>
+            </div>
+        </section>
+        <div id="encriptado" class="desencriptador">
+            <img class="desencriptador__imagen" src="img/observa.png" alt="Muñeco observando">
+            <h2 class="desencriptador__subtitulo">Ningun mensaje fue encontrado</h2>
+            <p class="desencriptador__texto">Ingresa el texto que deseas encriptar o desencriptar.</p>
+        </div>
+        <div>
+            <img class="arturoto__imagen" src="img/arturito.png" alt="Muñeco observando">
+        </div>
+
+
+
+    </main>
+    <footer class="footer">
+        <p class="footer__texto">Desarrollado por Efrain Garduño</p>
+    </footer>
+
+    <script src="encriptor.js"></script>
+</body>
+</html>
