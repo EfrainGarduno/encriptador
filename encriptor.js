@@ -85,20 +85,21 @@ function copiarTexto() {
 
 function limpiarDesencriptado() {
     document.getElementById("encriptado").innerHTML = `
-            <img class="desencriptador__imagen" src="arrays/Muñeco.png" alt="Muñeco">
+            <img class="desencriptador__imagen" src="img/observa.png" alt="Muñeco observando">
             <h2 class="desencriptador__subtitulo">Ningun mensaje fue encontrado</h2>
             <p class="desencriptador__texto">Ingresa el texto que deseas encriptar o desencriptar.</p>   
     `;
 }
 
 function validarTexto(texto) {
+    texto=texto.toLowerCase()
     let str = document.getElementById("textarea");
     if (str.value.trim() === ""){
         Swal.fire("Por favor ingresa un texto");
         return;
     }
     if (/[^a-z\s]/.test(texto)) {
-        Swal.fire("El texto solo debe contener letras minúsculas y sin acentos.");
+        Swal.fire("El texto no puede tener acentos, números ni símbolos.");
         limpiarCaja();
         return undefined;
     }
