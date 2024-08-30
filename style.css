@@ -43,6 +43,7 @@ body{
 .contenedor{
     display: flex;
     margin: .5rem;
+    
 }
 .contenedor__texto{
     background-color: var(--color-secundario);
@@ -53,7 +54,7 @@ body{
     resize: none;
     width: 100%;
     height: 50dvh;
-    border-color: var(--color-secundario);
+    /* border-color: var(--color-secundario);*/
     overflow: auto;
 }
 .envio{
@@ -166,6 +167,23 @@ body{
     border-color: var(--color-obscuro);
     margin-top: auto;
 }
+
+.limpiar__boton{
+    font-family: var(--fuente-inter);
+    font-weight: 400;
+    font-size: .75rem;
+    background-color: var(--color-primario);
+    color: var(--color-obscuro);
+    border-radius: 1.5rem;
+    padding: .5rem;
+    width: 14rem;
+    border-color: var(--color-obscuro);
+    margin-top: auto;
+}
+
+
+
+
 .footer{
     padding: 20px;
     display: flex;
@@ -187,6 +205,10 @@ body{
     .copiar__boton{
         width: auto;
     }
+    .limpiar__boton{
+        width: auto;
+    }
+
 }
 
 @media (max-width: 1024px){
@@ -219,6 +241,11 @@ body{
     .copiar__boton{
         width: auto;
     }
+
+    .limpiar__boton{
+        width: auto;
+    }
+
     .texto__estilizado{
         height: 10dvh;
     }
@@ -258,6 +285,10 @@ body{
     .copiar__boton{
         width: auto;
     }
+    .limpiar__boton{
+        width: auto;
+    }
+    
     .desencriptador{
         background-color: var(--color-primario);
         display: flex;
