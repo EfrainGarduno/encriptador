@@ -1,20 +1,45 @@
-function usuarioEncripta() {
+function usuarioEncripta_Desencripta(char) {
     let textoUsuario = document.getElementById("textarea").value;
     textoUsuario = validarTexto(textoUsuario);
+    let textoEncriptado_Desencriptado=""
+    console.log("Estoy entrando a la función")
     if (textoUsuario !== undefined) {
-        const textoEncriptado = encriptarTexto(textoUsuario);
-        mostrarTextoEncriptado(textoEncriptado);
+        if (char=="E"){
+            textoEncriptado_Desencriptado = encriptarTexto(textoUsuario);
+        }else{
+            textoEncriptado_Desencriptado = desencriptarTexto(textoUsuario);
+        }
+        mostrarTextoEncriptado_Desencriptado(textoEncriptado_Desencriptado);
         limpiarCaja();
     }
 }
 
+
+
 function encriptarTexto(texto) {
     const reglas = {
+        
+        'E': 'luli',
+        'I': 'tajas',
+        'A': 'chaz',
+        'O': 'durne',
+        'U': 'cjed',
         'e': 'enter',
         'i': 'imes',
         'a': 'ai',
         'o': 'ober',
-        'u': 'ufat'
+        'u': 'ufat',
+        '0': 'tati',
+        '1': 'loni',
+        '2': 'fabi',
+        '3': 'quia',
+        '4': 'sora',
+        '5': 'tis',
+        '6': 'miley',
+        '7': 'zaju',
+        '8': 'torin',
+        '9': 'solep'
+      
     }
 
     let textoEncriptado = '';
@@ -25,31 +50,29 @@ function encriptarTexto(texto) {
     return textoEncriptado;
 }
 
-function mostrarTextoEncriptado(texto) {
-    const divEncriptado = document.getElementById("encriptado");
-    divEncriptado.innerHTML = `
-    <p class="texto__estilizado" id="textoEncriptado">${texto}</p>
-    <button class="copiar__boton" onclick="copiarTexto()">Copiar texto</button>
-    `;
-}
-
-function usuarioDesencripta() {
-    let textoUsuario = document.getElementById("textarea").value;
-    textoUsuario = validarTexto(textoUsuario);
-    if (textoUsuario !== undefined) {
-        const textoDesencriptado = desencriptarTexto(textoUsuario);
-        mostrarTextoDesencriptado(textoDesencriptado);
-        limpiarCaja();
-    }
-}
-
 function desencriptarTexto(texto) {
     const reglas = {
+        
+        'luli': 'E',
+        'tajas': 'I',
+        'chaz': 'A',
+        'durne': 'O',
+        'cjed': 'U',
         'enter': 'e',
         'imes': 'i',
         'ai': 'a',
         'ober': 'o',
-        'ufat': 'u'
+        'ufat': 'u',
+        'tati':'0',
+        'loni':'1',
+        'fabi':'2',
+        'quia':'3',
+        'sora':'4',
+        'tis':'5',
+        'miley':'6',
+        'zaju':'7',
+        'torin':'8',
+        'solep':'9' 
     }
 
     let textoDesencriptado = texto;
@@ -61,27 +84,29 @@ function desencriptarTexto(texto) {
     return textoDesencriptado;
 }
 
-function mostrarTextoDesencriptado(texto) {
+function mostrarTextoEncriptado_Desencriptado(texto) {
     const divEncriptado = document.getElementById("encriptado");
     divEncriptado.innerHTML = `
-    <p class="texto__estilizado" id="textoDesencriptado">${texto}</p>
-    <button id="copiar" class="copiar__boton" onclick="copiarTexto()">Copiar texto</button>
+    <p class="texto__estilizado" id="textoEncriptado">${texto}</p>
+    <button class="copiar__boton" onclick="copiarTexto()">Copiar texto</button>
+    <button id="limpiar" class="limpiar__boton" onclick="limpiarDesencriptado()">Limpiar Resultado</button>
     `;
+
 }
+
 
 function limpiarCaja() {
     document.querySelector("#textarea").value = ""; 
 }
 
+
 function copiarTexto() {
     const texto = document.querySelector("#encriptado p").textContent;
-    navigator.clipboard.writeText(texto).then(() => {
-        Swal.fire("Texto copiado!");
-        limpiarDesencriptado();
-    }).catch(err => {
-        alert("Error al copiar el texto: " + err);
-    });
+    document.querySelector("#textarea").value = texto;
+    limpiarDesencriptado();
+    Swal.fire("Texto copiado!");
 }
+
 
 function limpiarDesencriptado() {
     document.getElementById("encriptado").innerHTML = `
@@ -91,17 +116,19 @@ function limpiarDesencriptado() {
     `;
 }
 
+
 function validarTexto(texto) {
-    texto=texto.toLowerCase()
+    /* texto=texto.toLowerCase()*/
     let str = document.getElementById("textarea");
     if (str.value.trim() === ""){
         Swal.fire("Por favor ingresa un texto");
         return;
     }
-    if (/[^a-z\s]/.test(texto)) {
-        Swal.fire("El texto no puede tener acentos, números ni símbolos.");
+    if (/[^a-z0-9A-ZÑ.ñ\s]/.test(texto)) {
+        Swal.fire("El texto no puede contener letras acentuadas ni símbolos.");
         limpiarCaja();
         return undefined;
     }
     return texto;
 }
+
