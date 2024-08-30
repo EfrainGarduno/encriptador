@@ -12,18 +12,21 @@
         <h1 class="titulo">Encriptador Arturito</h1>
     </header>
     <main class="encriptador">
+        
         <section class="encriptador__envia">
+            
             <div class="contenedor">
                 <textarea id="textarea" class="contenedor__texto" placeholder="Ingrese el texto aquí"></textarea>
             </div>
+
             <div class="envio">
                 <div class="alerta">
                     <img class="admiracion" src="img/admiracion.png" alt="Signo de admiración">
                     <p class="alerta__texto">Solo letras minúsculas y sin acentos</p>
                 </div>
                 <div class="botones">
-                    <button onclick="usuarioEncripta()" id="botonEncriptado" class="boton__encriptar">Encriptar</button>
-                    <button onclick="usuarioDesencripta()" id="botonDesencriptado" class="boton__desencriptar">Desencriptar</button>
+                    <button onclick="usuarioEncripta_Desencripta('E')" id="botonEncriptado" class="boton__encriptar">Encriptar</button>
+                    <button onclick="usuarioEncripta_Desencripta('D')" id="botonDesencriptado" class="boton__desencriptar">Desencriptar</button>
                 </div>
             </div>
         </section>
@@ -33,11 +36,8 @@
             <p class="desencriptador__texto">Ingresa el texto que deseas encriptar o desencriptar.</p>
         </div>
         <div>
-            <img class="arturoto__imagen" src="img/arturito.png" alt="Muñeco observando">
+            <img class="arturoto__imagen" src="img/arturito.png" alt="Robot R2D2">
         </div>
-
-
-
     </main>
     <footer class="footer">
         <p class="footer__texto">Desarrollado por Efrain Garduño</p>
